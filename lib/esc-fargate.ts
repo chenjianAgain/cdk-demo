@@ -4,7 +4,7 @@ import { Cluster, ContainerImage, FargateTaskDefinition } from '@aws-cdk/aws-ecs
 import ecsPatterns = require('@aws-cdk/aws-ecs-patterns');
 
 
-export class CdkAllStack extends cdk.Stack {
+export class EcsFargate extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -22,13 +22,12 @@ export class CdkAllStack extends cdk.Stack {
       cpu: 256
     })
 
-    const web = taskDefinition.addContainer('web', {
-      image: ContainerImage.fromRegistry('nginx'),
-    })
-
-    web.addPortMappings({
-      containerPort: 80
-    })
+    taskDefinition
+      .addContainer('web', {
+        image: ContainerImage.fromRegistry('nginx'),
+      }).addPortMappings({
+        containerPort: 80
+      })
 
     const svc = new ecsPatterns.ApplicationLoadBalancedFargateService(this, 'Svc', {
       cluster,

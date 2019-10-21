@@ -1,0 +1,36 @@
+{
+  "vpc-provider:account=374801192098:filter.isDefault=false:region=us-west-2": {
+    "vpcId": "vpc-0f74e1521f1ebbd38",
+    "availabilityZones": [
+      "us-west-2a",
+      "us-west-2b",
+      "us-west-2c"
+    ],
+    "privateSubnetIds": [
+      "subnet-05aad0801fdd4e37f",
+      "subnet-0eede7d75d7cb19b8",
+      "subnet-0100ac2aeecae74e6"
+    ],
+    "privateSubnetNames": [
+      "Private"
+    ],
+    "privateSubnetRouteTableIds": [
+      "rtb-023edd79cb88c5e1d",
+      "rtb-0a37bf675be7bd60c",
+      "rtb-0c1a6211ca92b283a"
+    ],
+    "publicSubnetIds": [
+      "subnet-0455dd8617fbdbea6",
+      "subnet-075fcfed860400fd5",
+      "subnet-0c0f69cf657dd3f93"
+    ],
+    "publicSubnetNames": [
+      "Public"
+    ],
+    "publicSubnetRouteTableIds": [
+      "rtb-0f0734f888ab9cb8f",
+      "rtb-0f2b70b7632f5a6aa",
+      "rtb-0298d5ab2d7df2126"
+    ]
+  }
+}
