@@ -23,7 +23,7 @@ export class EcsEc2 extends cdk.Stack {
       minCapacity: 1,
       desiredCapacity: 1,
       instanceType: new InstanceType('t3.large'),
-      spotPrice: '0.03',
+      spotPrice: '0.23',
       spotInstanceDraining: true
     });
 
@@ -32,7 +32,7 @@ export class EcsEc2 extends cdk.Stack {
       minCapacity: 1,
       desiredCapacity: 1,
       instanceType: new InstanceType('t2.xlarge'),
-      spotPrice: '0.13',
+      spotPrice: '0.83',
       spotInstanceDraining: true
     });
 
@@ -66,7 +66,7 @@ export class EcsEc2 extends cdk.Stack {
     const svc = new ecsPatterns.ApplicationLoadBalancedEc2Service(this, 'Svc', {
       cluster,
       taskDefinition,
-      desiredCount: 5
+      desiredCount: 6
     })
   }
 }

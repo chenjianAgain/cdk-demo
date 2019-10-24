@@ -18,26 +18,26 @@ export class Ecs extends cdk.Stack {
       vpc
     })
 
-    // cluster.addCapacity('AsgSpot1', {
-    //   maxCapacity: 10,
-    //   minCapacity: 1,
-    //   desiredCapacity: 10,
-    //   instanceType: new InstanceType('t3.large'),
-    //   spotPrice: '0.03',
-    //   spotInstanceDraining: true
-    // });
+    cluster.addCapacity('AsgSpot1', {
+      maxCapacity: 10,
+      minCapacity: 1,
+      desiredCapacity: 1,
+      instanceType: new InstanceType('t3.large'),
+      spotPrice: '0.33',
+      spotInstanceDraining: true
+    });
 
-    // cluster.addCapacity('AsgSpot2', {
-    //   maxCapacity: 1,
-    //   minCapacity: 1,
-    //   desiredCapacity: 1,
-    //   instanceType: new InstanceType('t2.2xlarge'),
-    //   spotPrice: '0.03',
-    //   spotInstanceDraining: true
-    // });
+    cluster.addCapacity('AsgSpot2', {
+      maxCapacity: 1,
+      minCapacity: 1,
+      desiredCapacity: 1,
+      instanceType: new InstanceType('t2.2xlarge'),
+      spotPrice: '0.83',
+      spotInstanceDraining: true
+    });
 
     cluster.addCapacity('AsgOd', {
-      maxCapacity: 2,
+      maxCapacity: 3,
       minCapacity: 1,
       desiredCapacity: 1,
       instanceType: new InstanceType('t2.large'),
@@ -66,7 +66,7 @@ export class Ecs extends cdk.Stack {
     const svc = new ecsPatterns.ApplicationLoadBalancedEc2Service(this, 'ec2Service', {
       cluster,
       taskDefinition: ec2taskDefinition,
-      desiredCount: 10
+      desiredCount: 6
     })
 
     // 1. fargate cluster
@@ -92,7 +92,7 @@ export class Ecs extends cdk.Stack {
     new ecsPatterns.ApplicationLoadBalancedFargateService(this, 'fargateService', {
       cluster,
       taskDefinition,
-      desiredCount: 4
+      desiredCount: 1
     })
   }
 }
