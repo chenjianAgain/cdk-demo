@@ -29,36 +29,5 @@ export class EcsFargate extends cdk.Stack {
     // Output the DNS where you can access your service
     new cdk.CfnOutput(this, 'LoadBalancerDNS', { value: fargateService.loadBalancer.loadBalancerDnsName });
 
-    // const taskDefinition = new FargateTaskDefinition(this, 'Task', {
-    //   memoryLimitMiB: 512,
-    //   cpu: 256
-    // })
-    // taskDefinition
-    //   .addContainer('web', {
-    //     image: ContainerImage.fromRegistry('nginx'),
-    //   }).addPortMappings({
-    //     containerPort: 80
-    //   })
-    
-    // const taskDefinition2 = new FargateTaskDefinition(this, 'Task2', {
-    //   memoryLimitMiB: 512,
-    //   cpu: 256
-    // })
-    // taskDefinition2
-    //   .addContainer('php', {
-    //     image: ContainerImage.fromRegistry('abiosoft/caddy:php'),
-    //   })
-    //   .addPortMappings({
-    //     containerPort: 2015
-    //   })
-
-    // const svc = new ecsPatterns.ApplicationLoadBalancedFargateService(this, 'Svc', {
-    //   cluster,
-    //   taskDefinition
-    // })
-    // const svc2 = new ecsPatterns.ApplicationLoadBalancedFargateService(this, 'Svc2', {
-    //   cluster,
-    //   taskDefinition: taskDefinition2,
-    // })
   }
 }
