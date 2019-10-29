@@ -22,8 +22,10 @@ export class EcsFargate extends cdk.Stack {
     const fargateService = new ApplicationLoadBalancedFargateService(this, "FargateService", {
       cluster,
       taskImageOptions: {
-        image: ContainerImage.fromRegistry("amazon/amazon-ecs-sample"),
+        image: ContainerImage.fromRegistry("pahud/amazon-ecs-flask-sample"),
+        containerPort: 5000,
       },
+      desiredCount: 4
     });
 
     // Output the DNS where you can access your service
