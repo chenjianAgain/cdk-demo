@@ -12,8 +12,8 @@ import { Cf2 } from '../lib/cf.1';
 const app = new cdk.App();
 
 const env = {
-    region: 'us-west-2',
-    account: '374801192098'
+     region: app.node.tryGetContext('region') || process.env.CDK_INTEG_REGION || process.env.CDK_DEFAULT_REGION,	 
+    account: app.node.tryGetContext('account') || process.env.CDK_INTEG_ACCOUNT || process.env.CDK_DEFAULT_ACCOUNT
 };
 new CdkAllStack(app, 'CdkAllStack', { env });
 new EcsFargate(app, 'EcsFargate', { env });
