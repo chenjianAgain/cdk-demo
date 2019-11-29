@@ -8,6 +8,8 @@ import { EcsEc2Fargate } from '../lib/esc-ec2-fargate';
 import { Ecs } from '../lib/esc';
 import { Cf } from '../lib/cf';
 import { Cf2 } from '../lib/cf.1';
+import { EcsVpc } from '../lib/ecs-vpc';
+
 
 const app = new cdk.App();
 
@@ -23,4 +25,6 @@ new Ecs(app, 'Ecs', { env });
 
 new Cf(app, 'Cf', { env });
 new Cf2(app, 'Cf2', { env });
+
+new EcsVpc(app, 'EcsVpc', { env });
 

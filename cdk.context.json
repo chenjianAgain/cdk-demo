@@ -32,5 +32,9 @@
       "rtb-0f2b70b7632f5a6aa",
       "rtb-0298d5ab2d7df2126"
     ]
-  }
+  },
+  "availability-zones:account=374801192098:region=us-west-1": [
+    "us-west-1a",
+    "us-west-1b"
+  ]
 }
