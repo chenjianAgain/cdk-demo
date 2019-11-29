@@ -24,8 +24,10 @@ export class EcsVpc extends cdk.Stack {
     const fargateService = new ApplicationLoadBalancedFargateService(this, "FargateService", {
       cluster,
       taskImageOptions: {
-        image: ContainerImage.fromRegistry("pahud/amazon-ecs-flask-sample"),
+        // image: ContainerImage.fromRegistry("pahud/amazon-ecs-flask-sample"),
+        // image: ContainerImage
         containerPort: 5000,
+        image: ContainerImage.fromAsset('./flask-docker-app')
       },
       desiredCount: 4
     });
